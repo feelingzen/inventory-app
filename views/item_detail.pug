@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+    h1.title.detail= title 
+    em.detail #{itemInfo.description}
+    br
+    p #{itemInfo.name} belongs to the category 
+        strong #{categoryInfo.name}
+        
+    button 
+        a(href=`/inventory/delete/product/${itemInfo._id}`) Delete
+    button 
+        a(href=`/inventory/update/product/${itemInfo._id}`) Update

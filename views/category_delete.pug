@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+
+    h1.title=title 
+
+    if categoryItems.length 
+        p The following products must be removed before you can delete this category: 
+        ul 
+            each item in categoryItems 
+                li 
+                    a(href=item.url) #{item.name} 
+                    br
+                    em #{item.description}
+    else 
+        p Are you sure you want to delete this category?
+
+        form(method='POST')
+            input(type='hidden' name='categoryid' value=categoryInfo._id)
+
+            button(type="submit") Delete

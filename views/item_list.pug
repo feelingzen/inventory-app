@@ -1,0 +1,13 @@
+extends layout
+
+block content 
+    h1.title.list= title 
+    ul 
+        each item in the_items
+            li
+                a(href=item.url) #{item.name}
+                br
+                em #{item.description}
+                
+        else 
+            p There are no products

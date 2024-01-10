@@ -1,0 +1,28 @@
+extends layout 
+
+block content 
+    .form-container 
+        h1.form-title= title 
+        form(method='POST')
+            label(for="product_name") Product Name
+            input.form-input(type="text" minLength=2 placeholder="(eg. Plain White T-Shirt)" required name="product_name" value=(undefined == product ? '' : product.name))
+            label(for="product_description") Product Description
+            input.form-input(type="text" minLength=3 placeholder="(eg. High Quality Cotton)" required name="product_description" value=(undefined == product ? '' : product.description))
+            label(for="product_stock") Product Stock
+            input.form-input(type="number" min=1 placeholder="0" required name="product_stock" value=(undefined == product ? '' : product.stock))
+            label(for="product_category") Product Category
+            select(name="product_category")
+                for category in categories 
+                    if product 
+                        if category._id.toString() === product.category._id.toString()
+                            option(value=category._id selected) #{category.name}
+                        else 
+                            option(value=category._id) #{category.name}
+                    else 
+                        option(value=category._id) #{category.name} 
+            button(type="submit").btn Create
+        
+        if errors 
+            ul 
+                each error in errors 
+                    li.error= error.msg

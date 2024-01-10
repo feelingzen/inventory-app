@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+    h1.title.detail=title
+    em.detail #{categoryInfo.description}
+    h2 Items:  
+    ul 
+        each item in categoryItems 
+            li 
+            a(href=item.url) #{item.name}
+            br
+            em #{item.description} 
+            br
+            p Stock - #{item.stock}
+        else 
+            p There are no products within this category
+    button 
+        a(href=`/inventory/delete/category/${categoryInfo._id}`) Delete

@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .info
+    h1 Inventory Panel!
+    p.description Welcome to #{title}, this panel allows you to manage our stock. 
+    p.stat Items: #{itemCount}
+    p.stat Categories: #{categoryCount}

@@ -1,7 +1,19 @@
 doctype html
 html
   head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    nav 
+      .logo 
+        img(src="https://i.pinimg.com/originals/2f/bb/66/2fbb6650a2b6b07aee93909b1f248e24.png" height="auto")
+        h4 DaClothez 
+      .links 
+        a.navLink(href="/inventory/") #{"Home"}
+        a.navLink(href="/inventory/products") #{"Products"}
+        a.navLink(href="/inventory/categories") #{"Categories"}
+        a.navLink(href="/inventory/create/product") #{"Add Product"}
+        a.navLink(href="/inventory/create/category") #{"Add Category"}
+block content
